@@ -1,7 +1,7 @@
 -module(gallery,[Id,Title,Slug,Description,Ordinality]).
 -compile(export_all).
 
--has({galleryimage,many,[{sort_by,ordinality}]}).
+-has({galleryimages,many,[{sort_by,ordinality}]}).
 
 before_create() ->
     ModifiedRecord = set([{slug,slugs:slugify(Title)},
