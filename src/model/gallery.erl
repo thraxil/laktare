@@ -2,3 +2,9 @@
 -compile(export_all).
 
 -has({galleryimage,many,[{sort_by,ordinality}]}).
+
+before_create() ->
+    ModifiedRecord = set([{slug,slugs:slugify(Title)},
+			 {ordinality,boss_db:count(gallery) + 1}]),
+    {ok, ModifiedRecord}.
+
