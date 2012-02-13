@@ -22,4 +22,6 @@ first_image() ->
 images() ->
     [GI:image() || GI <- galleryimages()].
 
+get_absolute_url() ->
+    "/gallery/" ++ Id ++ "/index".
 

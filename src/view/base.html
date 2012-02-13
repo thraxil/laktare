@@ -1,0 +1,38 @@
+<html>
+<head><title>myopica: {% block title %}{% endblock %}</title>
+
+<style media="screen" type="text/css">
+@import "/static/css/site.css" ;
+</style>
+
+{% block css %}{% endblock %}
+{% block js %}{% endblock %}
+
+<link href="/feeds/main/" type="application/atom+xml" rel="alternate" title="Atom feed of all new images" />
+
+{% block feeds %}{% endblock %}
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17646288-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+
+
+<div id="wrapper">
+<h1 id="masthead"><span>myopica: {% block masthead %}{% endblock %}</span></h1>
+<div id="nav"><a id="sn1" href="/">myopica</a>{% block nav %}{% endblock %}<div class="clear"></div></div>
+{% block content %}{% endblock %}
+
+</div>
+</body>
+</html>
