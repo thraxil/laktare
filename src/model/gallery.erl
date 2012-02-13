@@ -5,6 +5,6 @@
 
 before_create() ->
     ModifiedRecord = set([{slug,slugs:slugify(Title)},
-			 {ordinality,boss_db:count(gallery) + 1}]),
+			{ordinality,boss_db:count(gallery) + 1}]),
     {ok, ModifiedRecord}.
 
