@@ -5,6 +5,6 @@
 
 before_create() ->
     ModifiedRecord = set([{slug,slugs:slugify(Title)},
-			  {createdtime,erlang:now()}
+			  {created_time,erlang:now()}
 			 ]),
     {ok, ModifiedRecord}.
