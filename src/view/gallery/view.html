@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block feeds %}
+<link href="/feeds/gallery/{{ gallery.slug }}/" type="application/atom+xml" rel="alternate"
+      title="Atom feed of all new images in {{ gallery.title }}" />
+{% endblock %}
+{% block bodyclass %}index{% endblock %}
+{% block content %}
+
+<h3>Gallery: {{gallery.title}}</h3>
+{% if gallery.description %}{{gallery.description}}{% endif %}
+
+{% for image in gallery.images %}
+<div class="thumb">
+<a href="{{gallery.get_image_url}}/{{image.slug}}" title="{{image.title}}"><img src="http://apomixis.thraxil.org/image/{{image.ahash}}/100s/image{{image.extension}}"
+			height="100" width="100"/></a>
+</div>{% endfor %}<div class="clear"/></div>
+
+
+{% endblock %}
