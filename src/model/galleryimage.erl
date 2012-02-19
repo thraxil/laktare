@@ -35,9 +35,20 @@ next_image() ->
 	    N
     end.
 
+is_nonzero(R) ->
+    case R of
+	0 ->
+	    false;
+	_ ->
+	    true
+   end.
 
-    % def has_other_galleries(self):
-    %     return self.other_galleries().count() > 0
+
+has_other_galleries() ->
+    I = image(),
+    G = gallery(),
+    is_nonzero(boss_db:count(galleryimage,[image_id = I:id(),
+				gallery_id ≠ G:id()])).
 
     % def other_galleries(self):
     %     return self.image.galleryimage_set.all().exclude(gallery=self.gallery)
