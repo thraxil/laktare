@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block bodyclass %}index{% endblock %}
+{% block content %}
+
+<form action="." method="post" enctype="multipart/form-data">
+<fieldset><legend>add image</legend>
+<table>
+<tr><th>select image</th>
+<td><input type="file" name="image" /></td>
+</tr>
+<tr><th>Title</th>
+<td><input type="text" name="title" /></td></tr>
+<tr><th>Medium</th>
+<td><input type="text" name="medium" /></td></tr>
+<tr><th>Description</th>
+<td><textarea name="description" rows="5" cols="100"></textarea></tr>
+</tr>
+<tr><th>galleries</th>
+<td>
+{% for gallery in galleries %}
+<label><input type="checkbox" name="{{gallery.id}}"/> {{ gallery.title }}</label><br />
+{% endfor %}
+</td></tr>
+<tr><td colspan="2"><input type="submit" value="add image" /></td></tr>
+</table>
+</fieldset>
+</form>
+
+{% endblock %}
