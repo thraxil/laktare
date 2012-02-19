@@ -7,7 +7,7 @@
 {% block content %}
 
 <h3>Gallery: {{gallery.title}}</h3>
-{% if gallery.description %}{{gallery.description}}{% endif %}
+{% if gallery.description %}{{gallery.formatted_description}}{% endif %}
 
 {% for image in gallery.images %}
 <div class="thumb">

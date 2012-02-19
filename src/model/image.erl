@@ -30,3 +30,6 @@ next_image() ->
 	    N
     end.
 
+formatted_description() ->
+    markdown:conv(Description).
+

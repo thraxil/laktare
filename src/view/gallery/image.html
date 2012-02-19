@@ -12,7 +12,7 @@ alt="{{image.title}}"
 />
 
 <h2>{{image.title}}</h2>
-{% if image.description %}{{image.description}}{% endif %}
+{% if image.description %}{{image.formatted_description}}{% endif %}
 {% if image.medium %}<b>medium:</b> {{ image.medium }}{% endif %}
 
 {% if gi.has_other_galleries %}

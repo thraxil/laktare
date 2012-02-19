@@ -28,3 +28,5 @@ get_absolute_url() ->
 get_image_url() ->
     "/gallery/image/" ++ Id.
 
+formatted_description() ->
+    markdown:conv(Description).
