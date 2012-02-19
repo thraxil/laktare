@@ -43,7 +43,6 @@ is_nonzero(R) ->
 	    true
    end.
 
-
 has_other_galleries() ->
     I = image(),
     G = gallery(),

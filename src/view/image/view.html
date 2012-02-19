@@ -14,10 +14,10 @@ alt="{{image.title}}"
 {% if image.description %}{{image.description}}{% endif %}
 {% if image.medium %}<b>medium:</b> {{ image.medium }}{% endif %}
 
-{% if image.galleryimage_set.all.count %}
+{% if image.galleryimages %}
 <b>Galleries:</b>
 <ul>
-{% for gallery in image.galleryimage_set.all %}
+{% for gallery in image.galleryimages %}
 <li><a href="{{ gallery.gallery.get_absolute_url }}">{{ gallery.gallery.title }}</a></li>
 {% endfor %}
 </ul>
