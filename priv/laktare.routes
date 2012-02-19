@@ -2,5 +2,6 @@
 
 {"/", [{controller, "main"}, {action, "index"}]}.
 
+
 % 404 File Not Found handler
 % {404, [{controller, "world"}, {action, "lost"}]}.

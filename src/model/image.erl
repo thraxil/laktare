@@ -10,7 +10,7 @@ before_create() ->
     {ok, ModifiedRecord}.
 
 get_absolute_url() ->
-    "/image/view/" ++ Id.
+    "/image/view/" ++ Slug.
 
 prev_image() ->
     case boss_db:count(image,[id > Id]) of 
