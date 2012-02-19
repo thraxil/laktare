@@ -19,6 +19,9 @@ first_image() ->
     GI = first_galleryimage(),
     GI:image().
 
+has_images() ->
+    boss_db:count(galleryimage,[gallery_id = Id]) == 0.
+
 images() ->
     [GI:image() || GI <- galleryimages()].
 
