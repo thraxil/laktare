@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block bodyclass %}index{% endblock %}
+{% block content %}
+
+<form action="." method="post">
+<fieldset><legend>add gallery</legend>
+<table>
+<tr><th>Title</th>
+<td><input type="text" name="title" /></td></tr>
+<tr><th>Description</th>
+<td><textarea name="description" rows="5" cols="100"></textarea></tr>
+</tr>
+<tr><td colspan="2"><input type="submit" value="add gallery" /></td></tr>
+</table>
+</fieldset>
+</form>
+
+{% endblock %}
