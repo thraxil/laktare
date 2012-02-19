@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block bodyclass %}index{% endblock %}
+{% block nav %}<div id="subnav">{% if image.prev_image %}<a href="{{ image.prev_image.get_absolute_url }}">&lt;&lt; newer</a>{% endif %}
+<b>[by date]</b>
+{% if image.next_image %}<a href="{{image.next_image.get_absolute_url}}">older &gt;&gt;</a>{% endif %}</div>
+{% endblock %}
+{% block content %}
+
+<img src="http://apomixis.thraxil.org/image/{{image.ahash}}/960w/image{{image.extension}}" 
+alt="{{image.title}}"
+/>
+
+<h2>{{image.title}}</h2>
+{% if image.description %}{{image.description}}{% endif %}
+{% if image.medium %}<b>medium:</b> {{ image.medium }}{% endif %}
+
+{% if image.galleryimage_set.all.count %}
+<b>Galleries:</b>
+<ul>
+{% for gallery in image.galleryimage_set.all %}
+<li><a href="{{ gallery.gallery.get_absolute_url }}">{{ gallery.gallery.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

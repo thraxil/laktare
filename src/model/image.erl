@@ -8,3 +8,6 @@ before_create() ->
 			  {created_time,erlang:now()}
 			 ]),
     {ok, ModifiedRecord}.
+
+get_absolute_url() ->
+    "/image/view/" ++ Id.
