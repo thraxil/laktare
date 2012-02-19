@@ -15,7 +15,7 @@ get_absolute_url() ->
     I = image(),
     G:get_image_url() ++ "/" ++ I:slug().
 
-prev_image() ->
+next_image() ->
     G = gallery(),
     case boss_db:count(galleryimage,[id > Id, gallery_id = G:id()]) of 
 	0 ->
@@ -25,7 +25,7 @@ prev_image() ->
 	    P
     end.
 
-next_image() ->
+prev_image() ->
     G = gallery(),
     case boss_db:count(galleryimage,[id < Id, gallery_id = G:id()]) of 
 	0 ->

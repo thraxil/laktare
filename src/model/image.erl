@@ -12,7 +12,7 @@ before_create() ->
 get_absolute_url() ->
     "/image/view/" ++ Slug.
 
-prev_image() ->
+next_image() ->
     case boss_db:count(image,[id > Id]) of 
 	0 ->
 	    false;
@@ -21,7 +21,7 @@ prev_image() ->
 	    P
     end.
 
-next_image() ->
+prev_image() ->
     case boss_db:count(image,[id < Id]) of 
 	0 ->
 	    false;
