@@ -50,5 +50,8 @@ has_other_galleries() ->
     is_nonzero(boss_db:count(galleryimage,[image_id = I:id(),
 				gallery_id ≠ G:id()])).
 
-    % def other_galleries(self):
-    %     return self.image.galleryimage_set.all().exclude(gallery=self.gallery)
+other_galleries() ->
+    I = image(),
+    G = gallery(),
+    boss_db:find(galleryimage,[image_id = I:id(),
+			       gallery_id ≠ G:id()]).
