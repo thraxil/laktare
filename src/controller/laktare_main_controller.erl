@@ -15,7 +15,9 @@ add('POST',[]) ->
     Medium = Req:post_param("medium"),
     [{uploaded_file,OrigFilename,TmpFile,Length}|_Rest] = Req:post_files(),
     Extension = filename:extension(OrigFilename),
-%    {output,io_lib:format("~w",[Req:post_params()])}.
+
+    Galleries = [P || {P,V} <- Req:post_params(), string:substr(P, 1, 8) == "gallery_", V == "on"],
+%    {output,io_lib:format("~w",[Galleries])}.
 
     {ok,Data} = file:read_file(TmpFile),
     URL = "http://apomixis.thraxil.org/",

@@ -18,7 +18,7 @@
 <tr><th>galleries</th>
 <td>
 {% for gallery in galleries %}
-<label><input type="checkbox" name="{{gallery.id}}"/> {{ gallery.title }}</label><br />
+<label><input type="checkbox" name="gallery_{{gallery.id}}"/> {{ gallery.title }}</label><br />
 {% endfor %}
 </td></tr>
 <tr><td colspan="2"><input type="submit" value="add image" /></td></tr>
