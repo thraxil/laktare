@@ -18,7 +18,7 @@ add('POST',[]) ->
 
     Galleries = [P || {P,V} <- Req:post_params(), string:substr(P, 1, 8) == "gallery_", V == "on"],
 %    {output,io_lib:format("~w",[Galleries])}.
-
+    
     {ok,Data} = file:read_file(TmpFile),
     URL = "http://apomixis.thraxil.org/",
     Boundary = "------------a450glvjfEoqerAc1p431paQlfDac152cadADfd",

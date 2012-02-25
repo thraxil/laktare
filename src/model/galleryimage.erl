@@ -35,18 +35,11 @@ prev_image() ->
 	    N
     end.
 
-is_nonzero(R) ->
-    case R of
-	0 ->
-	    false;
-	_ ->
-	    true
-   end.
 
 has_other_galleries() ->
     I = image(),
     G = gallery(),
-    is_nonzero(boss_db:count(galleryimage,[image_id = I:id(),
+    helpers:is_nonzero(boss_db:count(galleryimage,[image_id = I:id(),
 				gallery_id ≠ G:id()])).
 
 other_galleries() ->
