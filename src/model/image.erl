@@ -13,10 +13,10 @@ get_absolute_url() ->
     "/image/view/" ++ Slug.
 
 next_image() ->
-    helpers:head_or_false(boss_db:find(image,[id > Id],all,0,id,str_descending)).
+    helpers:head_or_false(boss_db:find(image,[created_time < CreatedTime],all,0,id,str_descending)).
 
 prev_image() ->
-    helpers:head_or_false(boss_db:find(image,[id < Id],all,0,id,str_ascending)).
+    helpers:head_or_false(boss_db:find(image,[created_time > CreatedTime],all,0,id,str_ascending)).
 
 formatted_description() ->
     markdown:conv(Description).

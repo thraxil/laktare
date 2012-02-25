@@ -17,11 +17,11 @@ get_absolute_url() ->
 
 next_image() ->
     G = gallery(),
-    helpers:head_or_false(boss_db:find(galleryimage,[id > Id, gallery_id = G:id()],all,0,id,str_descending)).
+    helpers:head_or_false(boss_db:find(galleryimage,[ordinality > Ordinality, gallery_id = G:id()],all,0,id,str_descending)).
 
 prev_image() ->
     G = gallery(),
-    helpers:head_or_false(boss_db:find(galleryimage,[id < Id, gallery_id = G:id()],all,0,id,str_ascending)).
+    helpers:head_or_false(boss_db:find(galleryimage,[ordinality < Ordinality, gallery_id = G:id()],all,0,id,str_ascending)).
 
 has_other_galleries() ->
     I = image(),

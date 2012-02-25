@@ -14,8 +14,7 @@ populate_test_data() ->
     {ok,SGI2} = GI2:save(),
     {SG1,SI1,SGI1,SI2,SGI2}.
 
-%% @doc encode fields and file for HTTP post multipart/form-data.
-% @reference Inspired by <a href="http://code.activestate.com/recipes/146306/">Python implementation</a>.
+% from: http://lethain.com/formatting-multipart-formdata-in-erlang/
 format_multipart_formdata(Boundary, Fields, Files) ->
     FieldParts = lists:map(fun({FieldName, FieldContent}) ->
                                    [lists:concat(["--", Boundary]),

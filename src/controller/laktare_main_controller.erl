@@ -3,7 +3,7 @@
 
 index('GET',[]) ->
     Galleries = boss_db:find(gallery,[]),
-    RecentImages = boss_db:find(image,[],15),
+    RecentImages = boss_db:find(image,[],15,0,created_time,num_descending),
     {ok,[{images,RecentImages},{galleries,Galleries}]}.
 
 add('GET',[]) ->
