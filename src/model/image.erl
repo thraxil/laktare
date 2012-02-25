@@ -13,22 +13,10 @@ get_absolute_url() ->
     "/image/view/" ++ Slug.
 
 next_image() ->
-    case boss_db:count(image,[id > Id]) of 
-	0 ->
-	    false;
-	_ ->
-	    [P|_Rest] = boss_db:find(image,[id > Id],all,0,id,str_descending),
-	    P
-    end.
+    helpers:head_or_false(boss_db:find(image,[id > Id],all,0,id,str_descending)).
 
 prev_image() ->
-    case boss_db:count(image,[id < Id]) of 
-	0 ->
-	    false;
-	_ ->
-	    [N|_Rest] = boss_db:find(image,[id < Id],all,0,id,str_ascending),
-	    N
-    end.
+    helpers:head_or_false(boss_db:find(image,[id < Id],all,0,id,str_ascending)).
 
 formatted_description() ->
     markdown:conv(Description).

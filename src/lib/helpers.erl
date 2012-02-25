@@ -41,4 +41,8 @@ is_nonzero(0) ->
 is_nonzero(_) ->
     true.
 
+head_or_false([]) ->
+    false;
+head_or_false([H|_]) ->
+    H.
 
