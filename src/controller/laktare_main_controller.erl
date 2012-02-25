@@ -16,8 +16,7 @@ add('POST',[]) ->
     [{uploaded_file,OrigFilename,TmpFile,Length}|_Rest] = Req:post_files(),
     Extension = filename:extension(OrigFilename),
 
-    Galleries = [P || {P,V} <- Req:post_params(), string:substr(P, 1, 8) == "gallery_", V == "on"],
-%    {output,io_lib:format("~w",[Galleries])}.
+    GalleryParams = [string:substr(P,9) || {P,V} <- Req:post_params(), string:substr(P, 1, 8) == "gallery_", V == "on"],
     
     {ok,Data} = file:read_file(TmpFile),
     URL = "http://apomixis.thraxil.org/",
@@ -30,6 +29,7 @@ add('POST',[]) ->
     Hash = proplists:get_value(<<"hash">>,Json),
     I = image:new(id,Title,slug,Description,created,Medium,Hash,Extension),
     {ok,SI1} = I:save(),
+    _Gs = SI1:add_to_galleries(GalleryParams),
     {redirect, "/"}.
 
 add_gallery('GET',[]) ->

@@ -21,3 +21,10 @@ prev_image() ->
 formatted_description() ->
     markdown:conv(Description).
 
+add_to_galleries(GalleryIds) ->
+    lists:map(fun(GalleryId) ->
+		      GI = galleryimage:new(id,GalleryId,Id,ordinality),
+		      {ok,SGI} = GI:save(),
+		      SGI:id()
+	      end, GalleryIds).
+
