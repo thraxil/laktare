@@ -16,7 +16,7 @@ newest_images() ->
     [GI:image() || GI <- lists:sublist(galleryimages(),15)].
 
 first_image() ->
-    [GI|_] = boss_db:find(galleryimage,[gallery_id = Id],1,0,id,num_descending),
+    [GI|_] = boss_db:find(galleryimage,[gallery_id = Id],1,0,ordinality,num_descending),
     GI:image().
 
 has_images() ->
