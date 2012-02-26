@@ -10,7 +10,7 @@ apply_transforms([{RegExp,Replace}|Rest],Str) ->
 slugify([]) -> "no-title";
 slugify(Str) ->
     Transforms = [{"[^[:alnum:]]+","-"},
-		  {"^[\w\s-]+",""},
+		  {"^[\s-]+",""},
 		  {"[\w\s-]+$",""}, % "
 		  {"\W+"," "},
 		  {"[-\s]+","-"}],
