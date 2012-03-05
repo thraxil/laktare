@@ -10,7 +10,7 @@ before_create() ->
     {ok, ModifiedRecord}.
 
 get_absolute_url() ->
-    "/image/view/" ++ Slug.
+    "/image/view/" ++ binary_to_list(Slug).
 
 next_image() ->
     helpers:head_or_false(boss_db:find(image,[created_time < CreatedTime],all,0,created_time,num_descending)).
